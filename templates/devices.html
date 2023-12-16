@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 >Device List</h1>
+    <table class="table">
+        <tr>
+            <th>IP Address</th>
+            <th>Hostname</th>
+            <th>Vendor</th>
+            <th>Edit</th>
+            <th>Hapus</th>
+        </tr>
+        {% for device in all_device %}    
+            <tr>
+                <td>{{ device.ip_address }}</td>
+                <td>{{ device.hostname }}</td>
+                <td>{{ device.vendor }}</td>
+                <td><a class="btn btn-primary " href="{% url 'update' device.id %}">Edit</a></td>
+                <td><a class="btn btn-danger mx-1" href="{% url 'delete' device.id %}">hapus</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a class="btn btn-primary" href="{% url 'create' %}">Tambah</a>
+        
+       
+{% endblock content %}

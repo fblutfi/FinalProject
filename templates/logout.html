@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <h5>Halo {{user}}</h5>
+    <p> Apakah anda yakin akan logout?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" name="logout">
+    </form>
+</body>
+
+{% endblock content %}

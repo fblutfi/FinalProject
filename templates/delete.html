@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Apakah anda yakin ingin menghapus "{{item}}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <a class="btn btn-danger" href="{% url 'devices' %}">Cancel</a>
+
+    <input class="btn btn-primary " type="submit" name="Confirm">
+</form>
+{% endblock content %}
